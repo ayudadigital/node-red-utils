@@ -19,15 +19,15 @@ echo >&2 -ne "# Chech presence of 'jq' tool: "
 which -s jq || (echo >&2 "not installed. Aborting"; exit 1)
 echo >&2 "OK"
 
-inputFile=$(echo "$(cd "$(dirname "$1")"; pwd)/$(basename "$1")")
+inputFile=$(cd "$(dirname "$1")"; pwd)/$(basename "$1")
 echo >&2 -ne "# Input data file check '${inputFile}': "
-jq empty $inputFile  || (echo >&2 "Aborting"; exit 1)
-inputDirectory=$(echo "$(cd "$(dirname "$inputFile")"; pwd)")
+jq empty "$inputFile"  || (echo >&2 "Aborting"; exit 1)
+inputDirectory=$(cd "$(dirname "$inputFile")"; pwd)
 echo >&2 "OK"
-outputDirectory=$(echo "$(cd "$2"; pwd)")
+outputDirectory=$(cd "$2"; pwd)
 echo >&2 -ne "# Output directory check '${outputDirectory}': "
-[ ! -d $outputDirectory ] && (echo >&2 "does not exist. Aborting"; exit 1)
-[ $inputDirectory == $outputDirectory ] && (echo >&2 "Input and output directory are the same. Aborting"; exit 1)
+[ ! -d "$outputDirectory" ] && (echo >&2 "does not exist. Aborting"; exit 1)
+[ "$inputDirectory" == "$outputDirectory" ] && (echo >&2 "Input and output directory are the same. Aborting"; exit 1)
 echo >&2 "OK"
 echo >&2
 echo >&2 "# Removing all .json files '${outputDirectory}/*.json': "
@@ -37,8 +37,8 @@ echo >&2 "=========="
 
 echo >&2
 echo >&2 -n "# Extract the ID of each tab: "
-idList=$(jq ".[]|select (.type == \"tab\")|.id" $inputFile)
-echo >&2 "$(echo $idList|wc -w) tabs found"
+idList=$(jq ".[]|select (.type == \"tab\")|.id" "$inputFile")
+echo >&2 "$(echo "$idList"|wc -w) tabs found"
 
 echo >&2 "# Loop tabs extracting content:"
 for id in $idList; do
@@ -46,7 +46,7 @@ for id in $idList; do
     outputFile="${outputDirectory}/${outputFile#\"}".json
     echo >&2 -e "\tTab: ${id} => file: ${outputFile}"
     (
-        jq ".[]|select ((.id == ${id}) or (.z == ${id}))" $inputFile
+        jq ".[]|select ((.id == ${id}) or (.z == ${id}))" "$inputFile"
     ) | jq -s '.' > "${outputFile}"
 done
 
