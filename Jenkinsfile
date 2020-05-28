@@ -23,7 +23,11 @@ pipeline {
             when { branch 'release/new' }
             steps  {
                 jplMakeRelease(cfg, true)
-                deleteDir()
+            }
+            post {
+                cleanup {
+                    deleteDir()
+                }
             }
         }
     }
