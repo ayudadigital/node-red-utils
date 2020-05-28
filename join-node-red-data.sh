@@ -15,8 +15,12 @@ if [ $# -ne 1 ]; then
     exit 1
 fi
 
+echo >&2 -ne "# Chech presence of 'jq' tool: "
+which -s jq || (echo >&2 "not installed. Aborting"; exit 1)
+echo >&2 "OK"
+
 inputDirectory=$(echo "$(cd "$1"; pwd)")
-echo >&2 -ne "\t# Input data files check '${inputDirectory}': "
+echo >&2 -ne "# Input data files check '${inputDirectory}': "
 
 jq empty "$inputDirectory"/*.json || (echo >&2 "Aborting"; exit 1)
 echo >&2 "OK"
