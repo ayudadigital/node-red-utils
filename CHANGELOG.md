@@ -1,5 +1,25 @@
 # Changelog
 
+## v0.1.1 (2020-05-29)
+
+### Changes
+
+#### Fix
+
+* Join flows with the correct jq sintax ([728a75f](https://github.com/ayudadigital/node-red-utils/commit/728a75f))
+
+#### Build
+
+* Update Auto Release Log adding v0.1.1 info with JPL ([7696114](https://github.com/ayudadigital/node-red-utils/commit/7696114))
+
+#### Docs
+
+* Generate v0.1.0 changelog with JPL ([2cf2051](https://github.com/ayudadigital/node-red-utils/commit/2cf2051))
+
+### Authors
+
+* Pedro Amador
+
 ## v0.1.0 (2020-05-28)
 
 ### Changes
