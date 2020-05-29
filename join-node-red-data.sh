@@ -27,7 +27,7 @@ echo >&2 "OK"
 
 echo >&2
 echo >&2 -ne "# Join json files: "
-jq . "$inputDirectory"/*.json
+jq -s '[.[][]]' "$inputDirectory"/*.json
 echo >&2 "OK"
 
 echo >&2 "# FINISH"
