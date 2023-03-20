@@ -1,6 +1,6 @@
 #!groovy
 
-@Library('github.com/ayudadigital/jenkins-pipeline-library@v5.0.0') _
+@Library('jenkins-pipeline-library') _
 
 // Initialize global config
 cfg = jplConfig('node-red-utils', 'bash', '', [email: env.CI_NOTIFY_EMAIL_TARGETS])
