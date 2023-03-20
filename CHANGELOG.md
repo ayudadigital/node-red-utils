@@ -1,5 +1,26 @@
 # Changelog
 
+## v0.1.2 (2023-03-20)
+
+### Changes
+
+#### Update
+
+* Review year info ([1c2ae53](https://github.com/ayudadigital/node-red-utils/commit/1c2ae53))
+
+#### Build
+
+* Update Auto Release Log adding v0.1.2 info with JPL ([061a15e](https://github.com/ayudadigital/node-red-utils/commit/061a15e))
+* Use internal jpl ([2b26747](https://github.com/ayudadigital/node-red-utils/commit/2b26747))
+
+#### Docs
+
+* Generate v0.1.1 changelog with JPL ([efc8044](https://github.com/ayudadigital/node-red-utils/commit/efc8044))
+
+### Authors
+
+* Pedro Amador
+
 ## v0.1.1 (2020-05-29)
 
 ### Changes
