@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
 
-echo >&2 "Nodered split data (c) Ayuda Digital 2020"
+echo >&2 "Nodered split data (c) Ayuda Digital 2020-2023"
 echo >&2 ""
 
 if [ $# -ne 2 ]; then
